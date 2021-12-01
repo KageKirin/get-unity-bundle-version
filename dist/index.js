@@ -5798,14 +5798,14 @@ async function run()
 {
     try
     {
-        const prjSettings = parse_unityfile(file)[0];
-        console.dir(prjSettings)
-        if (prjSettings.PlayerSettings.bundleVersion)
+        const [doc, schema] = parse_unityfile(file);
+        console.dir(doc)
+        if (doc[0].PlayerSettings.bundleVersion)
         {
-            const ver = parse_version(prjSettings.PlayerSettings.bundleVersion);
+            const ver = parse_version(doc[0].PlayerSettings.bundleVersion);
             if (ver)
             {
-                core.setOutput('version', prjSettings.PlayerSettings.bundleVersion);
+                core.setOutput('version', doc[0].PlayerSettings.bundleVersion);
             }
             else
             {
@@ -5866,7 +5866,7 @@ function parse_version(version)
     // parse our yaml
     const objAr = yaml.loadAll(file, null, { schema });
 
-    return objAr;
+    return [objAr, schema];
 }
 
 run()
