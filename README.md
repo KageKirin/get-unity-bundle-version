@@ -1,6 +1,6 @@
-# get-node-package-version
+# get-unity-bundle-version
 
-GitHub Action to retrieve the current version from a node package.json.
+GitHub Action to retrieve the current bundleVersion from a Unity project's ProjectSettings.asset.
 Places the retrieved version into a context variable for later reference.
 
 ## Usage
@@ -26,7 +26,7 @@ jobs:
 
       - name: Get version
         id: package_version
-        uses: KageKirin/get-node-package-version@v0
+        uses: KageKirin/get-unity-bundle-version@v0
 
       - name: Create tag
         run: |
@@ -38,8 +38,8 @@ jobs:
 
 ### `file`
 
-This represents the path to the `package.json` to retrieve the version number from.
-It defaults to `package.json`,
+This represents the path to the `ProjectSettings.asset` to retrieve the version number from.
+It defaults to `ProjectSettings.asset`,
 but you might need to adapt it if the file is named differently,
 or lies in a subfolder.
 
@@ -52,12 +52,12 @@ It defaults to an equivalent of `major.minor.patch` and requires all 3 integers 
 
 ### `version`
 
-This the `version` string as retrieved from the `package.json`.
+This the `bundleVersion` string as retrieved from the `ProjectSettings.asset`.
 
 ## Errors
 
 The action will fail if:
 
 * it can't open the `file`
-* it fails to retrieve the `version` element
+* it fails to retrieve the `bundleVersion` element
 * the `version` string does not match the provided `regex`
