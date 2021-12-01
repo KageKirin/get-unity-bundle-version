@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/KageKirin/get-package-version#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0"
+    "@actions/core": "^1.6.0",
+    "js-yaml": "^4.1.0"
   }
 }
