@@ -48,10 +48,10 @@ function parse_version(version)
     return null
 }
 
-/*async */function parse_unityfile(path)
+function parse_unityfile(path)
 {
     const types = {};
-    let file = /*await fs.promises.readFile(path, 'utf8');*/ fs.readFileSync(path, 'utf8');
+    let file = fs.readFileSync(path, 'utf8');
 
     // remove the unity tag line
     file = file.replace( /%TAG.+\r?\n?/, '' );
