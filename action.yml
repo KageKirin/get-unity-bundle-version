@@ -1,0 +1,26 @@
+name: Get Unity Bundle Version
+description: Retrieves the current bundleVersion from a given Unity ProjectSettings.asset
+branding:
+  icon: anchor
+  color: blue
+inputs:
+  file:
+    description: |
+      'The ProjectSettings.asset from which to read the version. '
+      'Defaults to ProjectSettings.asset.'
+      'Set if you need to read a different file / or different folder.'
+    required: false
+    default: 'ProjectSettings/ProjectSettings.asset'
+  regex:
+    description: |
+      'ECMAScript Regular Expression to parse the version string for verification.'
+      'Defaults to being semver, i.e. "major.minor.patch"'
+      'Set if you to be compatible with a different, non-semver format.'
+    required: false
+    default: '^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)(\.(?<patch>0|[1-9]\d*))?(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
+outputs:
+  version:
+    description: 'Retrieved and verified version string'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
