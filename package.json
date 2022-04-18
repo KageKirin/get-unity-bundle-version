@@ -1,0 +1,26 @@
+{
+  "name": "get-unity-bundle-version",
+  "version": "0.0.2",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx @vercel/ncc build && npx convert-action"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/KageKirin/get-unity-bundle-version.git"
+  },
+  "keywords": [
+    "semver"
+  ],
+  "author": "Chris Helmich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KageKirin/get-unity-bundle-version/issues"
+  },
+  "homepage": "https://github.com/KageKirin/get-unity-bundle-version#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "js-yaml": "^4.1.0"
+  }
+}
